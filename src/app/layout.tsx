@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import '@/styles/index.css'
 
 export const metadata: Metadata = {
-  title: 'Yakouta - Luxury Jewelry & Fine Bijouterie',
+  title: 'Juman',
   description: 'Discover our exquisite collection of handcrafted jewelry, where each piece tells a story of luxury, craftsmanship, and timeless beauty.',
   keywords: ['jewelry', 'bijouterie', 'luxury jewelry', 'diamond rings', 'necklaces', 'bracelets', 'earrings', 'fine jewelry'],
 }
