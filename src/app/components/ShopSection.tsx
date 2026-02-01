@@ -138,8 +138,6 @@ export function ShopSection() {
               showFilters ? 'block' : 'hidden'
             } lg:block lg:w-64 flex-shrink-0`}
           >
-            } lg:block lg:w-64 flex-shrink-0`}
-          >
             <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
               {/* Category Filter */}
               <div className="mb-6 sm:mb-8">
