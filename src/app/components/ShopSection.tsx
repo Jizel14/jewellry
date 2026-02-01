@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Slider } from '@/app/components/ui/slider';
-import { Heart, ShoppingBag } from 'lucide-react';
+import { Heart, ShoppingBag, Filter, X } from 'lucide-react';
 
 const allProducts = [
   {
@@ -80,6 +80,7 @@ export function ShopSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedMaterial, setSelectedMaterial] = useState<string>('All');
   const [priceRange, setPriceRange] = useState<number[]>([0, 5000]);
+  const [showFilters, setShowFilters] = useState<boolean>(false);
 
   const categories = ['All', 'Rings', 'Necklaces', 'Bracelets', 'Earrings'];
   const materials = ['All', 'Gold', 'Diamond', 'Silver'];
@@ -92,20 +93,19 @@ export function ShopSection() {
   });
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <h2
-            className="inline-block relative mb-4"
+            className="inline-block relative mb-4 text-3xl sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '3.5rem',
               background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -116,22 +116,37 @@ export function ShopSection() {
           </h2>
         </motion.div>
 
-        <div className="flex gap-12">
+        {/* Mobile Filter Toggle Button */}
+        <div className="lg:hidden mb-6 flex justify-end">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B76E79] text-white rounded-lg"
+            style={{ fontFamily: 'var(--font-sans)' }}
+          >
+            {showFilters ? <X className="w-5 h-5" /> : <Filter className="w-5 h-5" />}
+            <span className="text-sm">{showFilters ? 'Close' : 'Filter'}</span>
+          </button>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
           {/* Sidebar Filters */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="w-64 flex-shrink-0"
+            className={`${
+              showFilters ? 'block' : 'hidden'
+            } lg:block lg:w-64 flex-shrink-0`}
           >
-            <div className="bg-gray-50 p-6 rounded-lg">
+            } lg:block lg:w-64 flex-shrink-0`}
+          >
+            <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
               {/* Category Filter */}
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 <h3
-                  className="mb-4 text-black"
+                  className="mb-3 sm:mb-4 text-black text-lg sm:text-xl"
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.5rem',
                   }}
                 >
                   Category
@@ -155,12 +170,11 @@ export function ShopSection() {
               </div>
 
               {/* Material Filter */}
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 <h3
-                  className="mb-4 text-black"
+                  className="mb-3 sm:mb-4 text-black text-lg sm:text-xl"
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.5rem',
                   }}
                 >
                   Material
@@ -186,10 +200,9 @@ export function ShopSection() {
               {/* Price Range Filter */}
               <div>
                 <h3
-                  className="mb-4 text-black"
+                  className="mb-3 sm:mb-4 text-black text-lg sm:text-xl"
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.5rem',
                   }}
                 >
                   Price Range
@@ -222,7 +235,7 @@ export function ShopSection() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             >
               {filteredProducts.map((product, index) => (
                 <motion.div

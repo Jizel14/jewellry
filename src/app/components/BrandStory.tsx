@@ -28,9 +28,9 @@ export function BrandStory() {
   ];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -38,7 +38,7 @@ export function BrandStory() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative h-[600px] rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] sm:h-[600px] rounded-lg overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1721103427881-efdc0c7d011f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kY3JhZnRlZCUyMGpld2VscnklMjBnb2xkJTIwYXJ0aXNhbnxlbnwxfHx8fDE3Njk4MTM5NTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                 alt="Handcrafted jewelry"
@@ -58,10 +58,9 @@ export function BrandStory() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2
-              className="mb-6"
+              className="mb-4 sm:mb-6 text-3xl sm:text-4xl lg:text-5xl"
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '3.5rem',
                 lineHeight: '1.2',
                 background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
                 WebkitBackgroundClip: 'text',
@@ -72,7 +71,7 @@ export function BrandStory() {
               A Legacy of Excellence
             </h2>
 
-            <div className="space-y-4 mb-10">
+            <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
               <p
                 className="text-gray-700 text-lg leading-relaxed"
                 style={{ fontFamily: 'var(--font-sans)' }}
@@ -99,7 +98,7 @@ export function BrandStory() {
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}

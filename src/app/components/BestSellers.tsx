@@ -50,20 +50,19 @@ export function BestSellers() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <h2
-            className="inline-block relative mb-4"
+            className="inline-block relative mb-4 text-3xl sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '3.5rem',
               background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -81,7 +80,7 @@ export function BestSellers() {
         </motion.div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
@@ -93,7 +92,7 @@ export function BestSellers() {
               className="group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
             >
               {/* Image Container */}
-              <div className="relative h-80 overflow-hidden bg-gray-100">
+              <div className="relative h-64 sm:h-80 overflow-hidden bg-gray-100">
                 <img
                   src={product.image}
                   alt={product.name}

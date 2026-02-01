@@ -50,10 +50,10 @@ export function Testimonials() {
   };
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-black relative overflow-hidden">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-black relative overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4AF37] opacity-10 blur-3xl rounded-full" />
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#B76E79] opacity-10 blur-3xl rounded-full" />
+      <div className="absolute top-20 left-10 w-32 sm:w-64 h-32 sm:h-64 bg-[#D4AF37] opacity-10 blur-3xl rounded-full" />
+      <div className="absolute bottom-20 right-10 w-32 sm:w-64 h-32 sm:h-64 bg-[#B76E79] opacity-10 blur-3xl rounded-full" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Title */}
@@ -61,13 +61,12 @@ export function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <h2
-            className="inline-block relative mb-4"
+            className="inline-block relative mb-4 text-3xl sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '3.5rem',
               background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -91,7 +90,7 @@ export function Testimonials() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative"
         >
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-12 border border-[#D4AF37]/30 shadow-2xl">
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 sm:p-12 border border-[#D4AF37]/30 shadow-2xl">
             {/* Stars */}
             <div className="flex justify-center gap-2 mb-6">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
@@ -111,7 +110,7 @@ export function Testimonials() {
               transition={{ duration: 0.5 }}
             >
               <p
-                className="text-white/90 text-xl text-center mb-8 leading-relaxed italic"
+                className="text-white/90 text-base sm:text-xl text-center mb-6 sm:mb-8 leading-relaxed italic"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
                 &ldquo;{testimonials[currentIndex].quote}&rdquo;
@@ -120,10 +119,9 @@ export function Testimonials() {
               {/* Author */}
               <div className="text-center">
                 <h4
-                  className="mb-1"
+                  className="mb-1 text-xl sm:text-2xl"
                   style={{
                     fontFamily: 'var(--font-serif)',
-                    fontSize: '1.5rem',
                     background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -145,15 +143,15 @@ export function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+            className="absolute left-0 sm:left-[-4rem] top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+            className="absolute right-0 sm:right-[-4rem] top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B76E79] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </button>
 
           {/* Dots Indicator */}

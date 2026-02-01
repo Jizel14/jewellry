@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { Search, Heart, ShoppingBag } from "lucide-react";
+import { Search, Heart, ShoppingBag, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,12 +32,12 @@ export function Navbar() {
         scrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-1">
             <h1
-              className="text-2xl tracking-widest"
+              className="text-xl sm:text-2xl tracking-widest"
               style={{
                 fontFamily: "var(--font-serif)",
                 background:
@@ -50,8 +51,8 @@ export function Navbar() {
             </h1>
           </div>
 
-          {/* Navigation Items */}
-          <div className="flex-1 flex justify-center gap-8">
+          {/* Desktop Navigation Items */}
+          <div className="hidden lg:flex flex-1 justify-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item}
@@ -70,8 +71,8 @@ export function Navbar() {
           </div>
 
           {/* Icons */}
-          <div className="flex-1 flex justify-end gap-6">
-            <button className="group relative">
+          <div className="flex-1 flex justify-end gap-4 sm:gap-6">
+            <button className="group relative hidden sm:block">
               <Search
                 className={`w-5 h-5 transition-all duration-300 ${
                   scrolled ? "text-black" : "text-white"
@@ -79,7 +80,7 @@ export function Navbar() {
                 style={{ color: scrolled ? "#000" : "#fff" }}
               />
             </button>
-            <button className="group relative">
+            <button className="group relative hidden sm:block">
               <Heart
                 className={`w-5 h-5 transition-all duration-300 ${
                   scrolled ? "text-black" : "text-white"
@@ -98,8 +99,47 @@ export function Navbar() {
                 3
               </span>
             </button>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="lg:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className={`w-6 h-6 ${scrolled ? "text-black" : "text-white"}`} />
+              ) : (
+                <Menu className={`w-6 h-6 ${scrolled ? "text-black" : "text-white"}`} />
+              )}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
+            <div className="flex flex-col py-4">
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-6 py-3 text-black hover:bg-gradient-to-r hover:from-[#D4AF37] hover:to-[#B76E79] hover:text-white transition-all duration-300"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {item.toUpperCase()}
+                </a>
+              ))}
+              <div className="flex gap-6 px-6 py-3 border-t border-gray-200 mt-2">
+                <button className="group relative">
+                  <Search className="w-5 h-5 text-black group-hover:text-[#D4AF37] transition-colors" />
+                </button>
+                <button className="group relative">
+                  <Heart className="w-5 h-5 text-black group-hover:text-[#D4AF37] transition-colors" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

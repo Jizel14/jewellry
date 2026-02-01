@@ -18,10 +18,10 @@ export function Newsletter() {
   };
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#D4AF37] opacity-20 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#B76E79] opacity-20 blur-3xl rounded-full" />
+      <div className="absolute top-0 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-[#D4AF37] opacity-20 blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-[#B76E79] opacity-20 blur-3xl rounded-full" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -31,16 +31,15 @@ export function Newsletter() {
           className="text-center"
         >
           {/* Icon */}
-          <div className="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B76E79] shadow-2xl">
-            <Mail className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B76E79] shadow-2xl">
+            <Mail className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </div>
 
           {/* Title */}
           <h2
-            className="mb-4"
+            className="mb-4 text-3xl sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '3.5rem',
               lineHeight: '1.2',
               background: 'linear-gradient(135deg, #D4AF37 0%, #CFB53B 50%, #B76E79 100%)',
               WebkitBackgroundClip: 'text',
@@ -53,7 +52,7 @@ export function Newsletter() {
 
           {/* Description */}
           <p
-            className="text-white/80 text-lg mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-white/80 text-base sm:text-lg mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: 'var(--font-sans)' }}
           >
             Subscribe to our newsletter and be the first to discover new collections, 
@@ -83,7 +82,7 @@ export function Newsletter() {
 
             <button
               type="submit"
-              className="px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B76E79] text-white rounded-lg relative overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-300 whitespace-nowrap"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#D4AF37] to-[#B76E79] text-white rounded-lg relative overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-300 whitespace-nowrap"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               <span className="relative z-10 tracking-widest">SUBSCRIBE</span>

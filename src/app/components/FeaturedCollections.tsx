@@ -32,20 +32,19 @@ export function FeaturedCollections() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <h2
-            className="inline-block relative mb-4"
+            className="inline-block relative mb-4 text-3xl sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '3.5rem',
               background: 'linear-gradient(135deg, #D4AF37 0%, #B76E79 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -65,7 +64,7 @@ export function FeaturedCollections() {
         </motion.div>
 
         {/* Collection Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {collections.map((collection, index) => (
             <motion.div
               key={collection.title}
@@ -75,7 +74,7 @@ export function FeaturedCollections() {
               className="group relative overflow-hidden rounded-lg cursor-pointer"
             >
               {/* Card Container */}
-              <div className="relative h-96 overflow-hidden rounded-lg shadow-lg transition-all duration-500 group-hover:shadow-2xl">
+              <div className="relative h-72 sm:h-96 overflow-hidden rounded-lg shadow-lg transition-all duration-500 group-hover:shadow-2xl">
                 {/* Image */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -90,12 +89,11 @@ export function FeaturedCollections() {
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-500 rounded-lg" />
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform transition-transform duration-500">
                   <h3
-                    className="mb-2"
+                    className="mb-2 text-2xl sm:text-3xl"
                     style={{
                       fontFamily: 'var(--font-serif)',
-                      fontSize: '2rem',
                       color: 'white',
                     }}
                   >

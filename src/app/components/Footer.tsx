@@ -18,16 +18,15 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-16 px-6">
+    <footer className="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <h2
-              className="mb-4"
+              className="mb-4 text-2xl sm:text-3xl"
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '2.5rem',
                 background: 'linear-gradient(135deg, #D4AF37 0%, #CFB53B 50%, #B76E79 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -62,10 +61,9 @@ export function Footer() {
           {/* Shop Links */}
           <div>
             <h3
-              className="mb-4"
+              className="mb-3 sm:mb-4 text-lg sm:text-xl"
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.25rem',
                 color: '#D4AF37',
               }}
             >
@@ -89,10 +87,9 @@ export function Footer() {
           {/* About Links */}
           <div>
             <h3
-              className="mb-4"
+              className="mb-3 sm:mb-4 text-lg sm:text-xl"
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.25rem',
                 color: '#D4AF37',
               }}
             >
@@ -116,10 +113,9 @@ export function Footer() {
           {/* Support Links */}
           <div>
             <h3
-              className="mb-4"
+              className="mb-3 sm:mb-4 text-lg sm:text-xl"
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.25rem',
                 color: '#D4AF37',
               }}
             >
